@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $((BINARY base=2 > base=10))
+echo $(($BINARY base=2 > base=10))
