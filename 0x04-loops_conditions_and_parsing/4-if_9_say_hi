@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#this displays Holberton school 10 times while displaying hi after the 9th line
+
+i=0
+
+while [ $i -lt 10 ]
+do
+  echo "Holberton School"
+    ((i++))
+      if [[ "$i" == '9' ]]; then
+        echo "hi"
+      fi
+      
+	    done
