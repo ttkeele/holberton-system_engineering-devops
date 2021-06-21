@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#this script displays how to loop Holberton School 10 times using until loop
 a=1
 until [ $a -gt 10 ]
 do
