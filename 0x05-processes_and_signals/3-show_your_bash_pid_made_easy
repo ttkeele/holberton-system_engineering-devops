@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#script shows bash pid with grep instead of ps command containing bash scripts
+pgrep -l -f bash
