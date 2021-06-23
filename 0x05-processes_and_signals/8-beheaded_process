@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# final kill
+kill "7-highland"
