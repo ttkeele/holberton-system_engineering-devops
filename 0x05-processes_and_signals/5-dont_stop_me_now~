@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#this script kills running processes
+kill 9 1451
