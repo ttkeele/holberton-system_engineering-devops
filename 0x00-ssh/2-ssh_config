@@ -1,0 +1,7 @@
+#  Share your SSH client configuration
+
+host 3264-web-01
+     HostName 34.139.218.97
+     User ubuntu
+     PasswordAuthentication No
+     IdentityFile ~/.ssh.school
