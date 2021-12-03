@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#transfers file to server
 
 if [ $# -lt 3 ]
 then
