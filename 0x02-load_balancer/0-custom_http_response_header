@@ -14,4 +14,6 @@ sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/error404.html
 search_str="\tlocation / {"
 replace_str="\tadd_header X-Served-By ${HOSTNAME};\n\n\terror_page 404 /error404.html;\n\n\tlocation /redirect_me {\n\t\treturn 301 \$scheme://https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n\n\tlocation / {"
 sudo sed -i "s@^$search_str@$replace_str@" /etc/nginx/sites-enabled/default
+tf="add_header X-Served-By $(hostname);"
+sudo sed -i "62 a $tf" /etc/nginx/nginx.conf
 sudo service nginx restart
