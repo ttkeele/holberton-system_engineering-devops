@@ -8,17 +8,17 @@ import requests
 
 if __name__ == "__main__":
 
-    userId = argv[1]
-    user = requests.get(
+    user_id = argv[1]
+    user_info = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.
-        format(userId)).json()
-    name = user.get('name')
+        format(user_id)).json()
+    name = user_info.get('name')
     tasks_completed = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}/todos?completed=true'.
-        format(userId)).json()
+        format(user_id)).json()
     total_tasks = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}/todos'.
-        format(userId)).json()
+        format(user_id)).json()
 
     print('Employee {} is done with tasks\
           ({}/{})'.
