@@ -4,6 +4,7 @@ from sys import argv
 import csv
 import requests
 
+
 if __name__ == "__main__":
     user_id = argv[1]
     user_info = requests.get(
