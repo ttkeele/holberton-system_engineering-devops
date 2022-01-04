@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """saves user todo info"""
-import requests
 import json
+import requests
 
 
 if __name__ == "__main__":
