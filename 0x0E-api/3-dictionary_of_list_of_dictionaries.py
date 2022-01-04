@@ -8,20 +8,20 @@ if __name__ == "__main__":
     t_tasks = {}
     users = requests.get('https://jsonplaceholder.typicode.com/users/').json()
     for user in users:
-        userId = user.get('id')
+        user_id = user.get('id')
         username = user.get('username')
-        user = requests.get(
+        user_info = requests.get(
             'https://jsonplaceholder.typicode.com/users/{}'.
-            format(userId)).json()
+            format(user_id)).json()
         username = user_info.get('username')
         tasks = requests.get(
             'https://jsonplaceholder.typicode.com/users/{}/todos'.
-            format(userId)).json()
+            format(user_id)).json()
 
-        t_tasks[userId] = []
+        t_tasks[user_id] = []
 
         for task in tasks:
-            t_tasks[userId].append({"username": username,
+            t_tasks[user_id].append({"username": username,
                                     "task": task.get('title'),
                                     "completed": task.get('completed')})
 
