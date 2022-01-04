@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """gathers info based on input id and saves to csv"""
 from sys import argv
-import requests
 import csv
-
+import requests
 
 if __name__ == "__main__":
     user_id = argv[1]
