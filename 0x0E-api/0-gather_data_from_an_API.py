@@ -3,7 +3,7 @@
 their TODO list progress"""
 
 import requests
-from sys import argv
+import sys
 
 
 if __name__ == "__main__":
