@@ -6,17 +6,17 @@ import csv
 
 
 if __name__ == "__main__":
-    userId = argv[1]
-    user = requests.get(
+    user_id = argv[1]
+    user_info = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.
-        format(userId)).json()
-    username = user.get('username')
+        format(user_id)).json()
+    username = user_info.get('username')
     tasks = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}/todos'.
-        format(userId)).json()
+        format(user_id)).json()
 
-    with open('{}.csv'.format(userId), 'w') as csvfile:
+    with open('{}.csv'.format(user_id), 'w') as csvfile:
         writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for task in tasks:
-            writer.writerow([userId, username, task.get('completed'),
+            writer.writerow([user_id, username, task.get('completed'),
                              task.get('title')])
