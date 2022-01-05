@@ -42,21 +42,22 @@ defaults
   # Else it goes to the default backend for the web servers
 
 frontend http_web
-        bind *:80
-	        stats uri /haproxy?stats
-		        default_backend custom_backend
-			# This is our new config that listens on port 443 for SSL connections
-			  # bind *:443 ssl crt /etc/ssl/www.trentness.tech/www.trentness.tech.pem
-			    # Test URI to see if its a letsencrypt request
-			      acl letsencrypt-acl path_beg /.well-known/acme-challenge/
-			        use_backend letsencrypt-backend if letsencrypt-acl
+    bind *:80
+    stats uri /haproxy?stats
+    default_backend custom_backend
 
-  default_backend custom_backend
+  # This is our new config that listens on port 443 for SSL connections
+    bind *:443 ssl crt /etc/ssl/www.trentness.tech/www.trentness.tech.pem
+    # Test URI to see if its a letsencrypt request
+    acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+    use_backend letsencrypt-backend if letsencrypt-acl
 
- backend custom_backend
-         balance roundrobin
-	         server web-01 34.73.144.251:80 check
-		         server web-02 35.231.196.130:80 check
-			 # LE Backend
-			 backend letsencrypt-backend
-			     server letsencrypt 127.0.0.1:8888
+    default_backend custom_backend
+
+backend custom_backend
+        balance roundrobin
+	server web-01 34.73.144.251:80 check
+	server web-02 35.231.196.130:80 check
+# LE Backend
+backend letsencrypt-backend
+    server letsencrypt 127.0.0.1:8888
