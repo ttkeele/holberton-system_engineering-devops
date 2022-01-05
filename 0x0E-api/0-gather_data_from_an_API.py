@@ -8,10 +8,10 @@ import sys
 
 if __name__ == "__main__":
     user_id = sys.argv[1]
-    user_info = requests.get(
+    usr_info = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.
         format(user_id)).json()
-    name = user_info.get('name')
+    name = usr_info.get('name')
     tasks_completed = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}/todos?completed=true'.
         format(user_id)).json()
