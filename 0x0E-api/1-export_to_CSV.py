@@ -7,10 +7,10 @@ import requests
 
 if __name__ == "__main__":
     user_id = argv[1]
-    user_info = requests.get(
+    usr_info = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.
         format(user_id)).json()
-    username = user_info.get('username')
+    username = usr_info.get('username')
     tasks = requests.get(
         'https://jsonplaceholder.typicode.com/users/{}/todos'.
         format(user_id)).json()
